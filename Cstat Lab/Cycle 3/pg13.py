@@ -5,7 +5,7 @@ def f(x):
     return x**2
 
 x = np.linspace(-10, 10, 200)
-y = np.sin(x)
+y = f(x)
 
 plt.plot(x, y)
 plt.grid(True)
