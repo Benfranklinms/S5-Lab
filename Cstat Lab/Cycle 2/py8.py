@@ -1,31 +1,19 @@
-def is_valid(s):
+def vaild_paranthesis(s):
     stack = []
-    for char in s:
-        if char == '(' or char == '{' or char == '[':
-            stack.append(char)
-        elif char == ')':
-            if not stack or stack[-1] != '(':
-                return False
-            stack.pop()
-        elif char == '}':
-            if not stack or stack[-1] != '{':
-                return False
-            stack.pop()
-        elif char == ']':
-            if not stack or stack[-1] != '[':
-                return False
+    pairs = {")" : "(", "}" : "{", "]" : "["}
+
+    for ch in s:
+        if ch in "({[":
+            stack.append(ch)
+        elif ch in ")}]":
             stack.pop()
         else:
-            return False
-    if len(stack) == 0:
-        return True
-    else:
-        return False
+            return false
 
-while True:
-    s = input("Enter the input string: ")
-    b = is_valid(s)
-    if b:
-        print("Valid String")
-    else:
-        print("Invalid String")
+    return not stack
+
+expr = input("Enter para : ")
+if vaild_paranthesis(expr):
+    print("valid")
+else:
+    print("invalid")
